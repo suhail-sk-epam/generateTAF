@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4  # Ensures repo is cloned
+        uses: actions/checkout@v4
 
       - name: Set Up Node.js
         uses: actions/setup-node@v4
@@ -23,19 +23,26 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-        working-directory: playwright-ts-framework  # 👈 Correct path
+        working-directory: playwright-ts-framework
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-        working-directory: playwright-ts-framework  # 👈 Correct path
+        working-directory: playwright-ts-framework
 
-      - name: Run Playwright Tests
-        run: npx playwright test
-        working-directory: playwright-ts-framework  # 👈 Correct path
+      - name: Run Playwright Tests with Allure
+        run: npx playwright test --reporter=html,allure-playwright
+        working-directory: playwright-ts-framework
 
-      - name: Upload Playwright Report
+      - name: Upload Playwright HTML Report
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report
+          name: playwright-html-report
           path: playwright-ts-framework/playwright-report/
+          retention-days: 7
+
+      - name: Upload Allure Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: playwright-ts-framework/allure-results/
           retention-days: 7
