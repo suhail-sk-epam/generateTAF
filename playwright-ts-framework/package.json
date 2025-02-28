@@ -1,0 +1,17 @@
+// Node package configuration
+{
+  "name": "playwright-ts-framework",
+  "version": "1.0.0",
+  "description": "A Playwright TypeScript Test Automation Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.18.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "allure-playwright": "^2.0.0"
+  }
+}
