@@ -1,0 +1,16 @@
+{
+  "name": "playwright-ts-framework",
+  "version": "1.0.0",
+  "description": "A Playwright TypeScript Test Automation Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.20.0",
+    "allure-playwright": "^2.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
+}
